@@ -1,13 +1,22 @@
 "use client";
 
-import { useMutation, useQuery } from "convex/react";
+import {
+  Preloaded,
+  useMutation,
+  usePreloadedQuery,
+  useQuery,
+} from "convex/react";
 import { api } from "@/convex/_generated/api";
 import { useState } from "react";
 
-export default function HomePage() {
+export default function HomePage({
+  waitlistTotal,
+}: {
+  waitlistTotal: Preloaded<typeof api.waitlist.waitlistTotal>;
+}) {
   const [email, setEmail] = useState<string>("");
 
-  const waitlistLength = useQuery(api.waitlist.waitlistTotal);
+  const waitlistLength = usePreloadedQuery(waitlistTotal);
   const addToWaitlist = useMutation(api.waitlist.addToWaitlist);
 
   return (
