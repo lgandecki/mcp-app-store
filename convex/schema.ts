@@ -9,4 +9,7 @@ export default defineSchema({
   numbers: defineTable({
     value: v.number(),
   }),
+  waitlist: defineTable({
+    email: v.string(),
+  }),
 });

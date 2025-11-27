@@ -9,6 +9,7 @@
  */
 
 import type * as myFunctions from "../myFunctions.js";
+import type * as waitlist from "../waitlist.js";
 
 import type {
   ApiFromModules,
@@ -18,6 +19,7 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   myFunctions: typeof myFunctions;
+  waitlist: typeof waitlist;
 }>;
 
 /**
